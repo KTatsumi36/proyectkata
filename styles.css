@@ -1,33 +1,49 @@
+/* Agregar la fuente personalizada */
+@font-face {
+    font-family: 'Nijiiro';
+    src: url('Nijiiro font.otf') format('opentype');
+}
+
+/* Aplicar la fuente a todo el documento */
 body {
-    background-color: rgb(255, 249, 227);
-    font-family: Helvetica, Arial, sans-serif;
-    color: rgb(0, 0, 0);
+    background-color : #FFF8DC; /* Beige claro */
+    background-size: cover;
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    font-family: 'Nijiiro', Helvetica, Arial, sans-serif; /* Usar la fuente personalizada */
+    color: #2c2c2c; /* Gris oscuro para el texto */
     margin: 0;
     padding: 0;
 }
 header {
-    background-color: #ff66b2;
-    color: #ffffff;
+    background-color: #8B4513; /* Marrón madera */
+    color: #ffffff; /* Blanco puro */
     text-align: center;
     padding: 10px;
 }
+
 nav {
-    background-color: #ff6666;
-    color: #ffffff;
+    background-color: #800000; /* Rojo oscuro */
+    color: #F5F5DC; /* Beige */
     text-align: center;
     padding: 10px;
 }
 nav a {
-    color: #ffffff;
+    color: #F5F5DC; /* Beige */
     text-decoration: none;
     padding: 10px;
 }
 nav a:hover {
-    background-color: #ff9999;
+    background-color: #A52A2A; /* Marrón rojizo */
 }
 section {
     padding: 20px;
     text-align: center;
+    background-color: #FAF0E6; /* Beige claro */
+    border: 1px solid #8B4513; /* Borde marrón madera */
+    border-radius: 10px;
+    margin: 20px;
 }
 .converter {
     margin: 20px 0;
@@ -36,38 +52,42 @@ section {
     padding: 10px;
     font-size: 16px;
     width: 300px;
-    border: 1px solid #ccc;
+    border: 1px solid #8B4513; /* Marrón madera */
     border-radius: 5px;
+    background-color: #FFF8DC; /* Beige claro */
 }
 .converter button {
     padding: 10px 20px;
     font-size: 16px;
-    background-color: #ff66b2;
-    color: #ffffff;
+    background-color: #800000; /* Rojo oscuro */
+    color: #ffffff; /* Blanco puro */
     border: none;
     border-radius: 5px;
     cursor: pointer;
 }
 .converter button:hover {
-    background-color: #ff9999;
+    background-color: #A52A2A; /* Marrón rojizo */
 }
 .resultado {
     margin-top: 20px;
     font-size: 18px;
     font-weight: bold;
-    color: #333;
+    color: #2c2c2c; /* Gris oscuro */
 }
 .featured-image img {
     width: 200px;
     height: auto;
     margin-top: 20px;
+    border: 2px solid #8B4513; /* Borde marrón madera */
+    border-radius: 10px;
 }
 footer {
-    background-color: #ff0000;
-    color: #ffffff;
+    background-color: #800000; /* Rojo oscuro */
+    color: #ffffff; /* Blanco puro */
     text-align: center;
     padding: 10px;
     position: relative;
     bottom: 0;
     width: 100%;
+    border-top: 2px solid #8B4513; /* Línea superior marrón madera */
 }
