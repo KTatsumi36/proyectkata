@@ -1,7 +1,7 @@
 /* Agregar la fuente personalizada */
 @font-face {
     font-family: 'Nijiiro';
-    src: url('Nijiiro font.otf') format('opentype');
+    src: url('../fonts/Nijiiro font.otf') format('opentype');
 }
 
 /* Aplicar la fuente a todo el documento */
@@ -11,8 +11,8 @@ body {
     background-position: center;
     background-size: contain;
     background-repeat: no-repeat;
-    font-family: 'Nijiiro', Helvetica, Arial, sans-serif; /* Usar la fuente personalizada */
-    color: #2c2c2c; /* Gris oscuro para el texto */
+    font-family: 'Nijiiro', Helvetica, Arial, sans-serif; /* Fuente del Nijiiro xd */
+    color: #2c2c2c; /*texto */
     margin: 0;
     padding: 0;
 }
