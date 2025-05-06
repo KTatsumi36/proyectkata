@@ -1,1 +1,1 @@
-Esta pagina web convierte texto en español a katakana perfecto para usar un text to speech cómo Voicebox o algo más complejo como una cancion en español con Vocaloid
+¡Bienvenido a nuestro Katakanizador de Números! Esta herramienta está diseñada especialmente para convertir números escritos en español a su equivalente en katakana, el sistema de escritura japonés utilizado para transcribir palabras extranjeras. Ideal para otakus hispanohablantes y estudiantes de japonés que buscan entender mejor cómo se representan los números en japonés.
