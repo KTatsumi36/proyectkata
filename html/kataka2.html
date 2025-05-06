@@ -6,36 +6,47 @@
   <button onclick="document.getElementById('background-audio').play()">▶️</button>
   <button onclick="document.getElementById('background-audio').pause()">⏹️</button>
   <audio id="background-audio" loop>
-    <source src="../audio/Angel.ogg" type="audio/ogg">
+    <source src="../audio/天天天国地獄国.mp3" type="audio/mp3">
   </audio>
   <link rel="stylesheet" href="../styles/styles.css">
   <link rel="icon" href="https://upload.wikimedia.org/wikipedia/commons/9/91/Japanese_Katakana_A.svg" type="image/x-icon">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    .katakana-image {
+      width: 350px;
+      height: auto;
+    }
+  </style>
 </head>
 <body>
-  <header>
-    <h1>Katakanizador de números 【カタカ二ザドㇽ】</h1>
+  <header style="font-size: 0.9em;">
+    <h2>Katakanizador de números 【カタカ二ザドㇽ】</h2>
     <nav>
       <a href="../index.html">Inicio</a>
       <a href="history.html">Historia</a>
-      <a href="historienh.html">History JP version xd</a>
+      <a href="historienh.html">Historia en Japonés</a>
       <a href="none">Contacto</a>
     </nav>
   </header>
   <section>
-    <h2>¡Convierte tus números a katakana!</h2>
-    <p>Ingresa un número en el campo de texto y presiona el botón "Convertir". Por ahora, solo funciona con números escritos en español.</p>
-    <div class="converter">
-      <input type="text" id="numeroInput" placeholder="ej. once, doce, veintitrés...">
-      <button id="convertirBtn">Convertir</button>
-    </div>
-    <div id="resultado" class="resultado"></div>
-    <div class="featured-image">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/9/91/Japanese_Katakana_A.svg" alt="カタカナ">
-    </div>
+    <h1>¡Convierte tus números a katakana!</h1>
+<p>Ingresa un número en el campo de texto y presiona el botón "Convertir". Por ahora, solo funciona con números escritos en español.</p>
+<div class="converter">
+  <input type="text" id="numeroInput" placeholder="ej. once, doce, veintitrés..." aria-label="Campo para ingresar el número" style="font-size: 1.5em; padding: 10px; width: 100%; margin-bottom: 10px;">
+  <button id="convertirBtn" aria-label="Botón para convertir a katakana" style="font-size: 1.1cm; padding: 10px 20px;">Convertir</button>
+</div>
+<div id="resultado" class="resultado" aria-live="polite"></div>
+<div id="copiarContainer" style="display: none;"></div>
+  <button id="copiarBtn" aria-label="Botón para copiar el resultado al portapapeles" style="font-size: 1.5em; padding: 10px 20px; margin-top: 10px;">Copiar resultado</button>
+</div>
+<div class="featured-image">
+  <img src="..\images\Mikukata.png" alt="Símbolo de katakana カタカナ" class="katakana-image">
+</div>
+
   </section>
   <footer>
     &copy; 2025 Katakanizador de números 【カタカ二ザドㇽ】
   </footer>
-  <script src="scripts/script.js"></script>
+  <script src="../scripts/script.js"></script>
 </body>
 </html>

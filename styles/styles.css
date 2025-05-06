@@ -6,88 +6,137 @@
 
 /* Aplicar la fuente a todo el documento */
 body {
-    background-color : #FFF8DC; /* Beige claro */
-    background-size: cover;
-    background-position: center;
-    background-size: contain;
-    background-repeat: no-repeat;
-    font-family: 'Nijiiro', Helvetica, Arial, sans-serif; /* Fuente del Nijiiro xd */
-    color: #2c2c2c; /*texto */
+    background-color: #FFF8DC; /* Beige claro */
+    background-image: linear-gradient(to bottom, #FFF8DC, #FAF0E6); /* Degradado sutil */
+    font-family: 'Nijiiro', Helvetica, Arial, sans-serif; /* Fuente personalizada */
+    color: #2c2c2c; /* Texto gris oscuro */
     margin: 0;
     padding: 0;
-}
-header {
-    background-color: #8B4513; /* Marrón madera */
-    color: #ffffff; /* Blanco puro */
-    text-align: center;
-    padding: 10px;
+    transition: background-color 0.3s, color 0.3s; /* Transición para modo oscuro */
 }
 
+/* Modo oscuro */
+.dark-mode {
+    background-color: #2c2c2c; /* Fondo oscuro */
+    color: #f9f9f9; /* Texto claro */
+}
+
+/* Estilo del encabezado */
+header {
+    background-color: #39baed; /* Marrón madera */
+    color: #ffffff; /* Blanco puro */
+    text-align: center;
+    padding: 20px;
+    font-size: 1.8rem;
+    font-weight: bold;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Sombra para destacar */
+}
+
+/* Estilo de navegación */
 nav {
-    background-color: #800000; /* Rojo oscuro */
+    background-color: #3ab0db; /* Rojo oscuro */
     color: #F5F5DC; /* Beige */
     text-align: center;
-    padding: 10px;
+    padding: 15px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra ligera */
 }
 nav a {
     color: #F5F5DC; /* Beige */
     text-decoration: none;
-    padding: 10px;
+    padding: 10px 15px;
+    font-weight: bold;
+    transition: background-color 0.3s, color 0.3s; /* Transición suave */
 }
 nav a:hover {
-    background-color: #A52A2A; /* Marrón rojizo */
+    background-color: #55cae5; /* Marrón rojizo */
+    color: #ffffff; /* Blanco puro */
+    border-radius: 5px;
 }
+
+/* Estilo de las secciones */
 section {
-    padding: 20px;
+    padding: 30px;
     text-align: center;
-    background-color: #FAF0E6; /* Beige claro */
-    border: 1px solid #8B4513; /* Borde marrón madera */
+    background-color: #E0FFFF; /* Verde aqua claro */
+    border: 1px solid #20B2AA; /* Verde aqua más oscuro */
     border-radius: 10px;
-    margin: 20px;
+    margin: 20px auto;
+    max-width: 900px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra para destacar */
+    color: #2c2c2c; /* Texto gris oscuro */
 }
-.converter {
-    margin: 20px 0;
+
+/* Estilo de las tarjetas de proyectos */
+.project-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1.5rem;
 }
-.converter input {
+.project-card {
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    width: 280px;
+    padding: 20px;
+    text-align: left;
+    transition: transform 0.3s, box-shadow 0.3s; /* Animación al pasar el cursor */
+}
+.project-card:hover {
+    transform: translateY(-10px); /* Elevar tarjeta */
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2); /* Sombra más intensa */
+}
+.project-card h3 {
+    margin-top: 0;
+    color: #46c1ee; /* Marrón madera */
+}
+.project-card a {
+    color: #4CAF50; /* Verde */
+    text-decoration: none;
+    font-weight: bold;
+}
+.project-card a:hover {
+    text-decoration: underline;
+}
+
+/* Estilo del formulario */
+form {
+    margin-top: 20px;
+}
+form input, form textarea {
+    width: 90%;
+    max-width: 500px;
     padding: 10px;
-    font-size: 16px;
-    width: 300px;
-    border: 1px solid #8B4513; /* Marrón madera */
+    margin: 10px 0;
+    border: 1px solid #41c2df; /* Marrón madera */
     border-radius: 5px;
     background-color: #FFF8DC; /* Beige claro */
+    font-size: 1rem;
 }
-.converter button {
+form button {
     padding: 10px 20px;
-    font-size: 16px;
-    background-color: #800000; /* Rojo oscuro */
+    font-size: 1rem;
+    background-color: #41c2df; /* Rojo oscuro */
     color: #ffffff; /* Blanco puro */
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    transition: background-color 0.3s;
 }
-.converter button:hover {
-    background-color: #A52A2A; /* Marrón rojizo */
+form button:hover {
+    background-color: #41c2df; /* Marrón rojizo */
 }
-.resultado {
-    margin-top: 20px;
-    font-size: 18px;
-    font-weight: bold;
-    color: #2c2c2c; /* Gris oscuro */
-}
-.featured-image img {
-    width: 200px;
-    height: auto;
-    margin-top: 20px;
-    border: 2px solid #8B4513; /* Borde marrón madera */
-    border-radius: 10px;
-}
+
+/* Estilo del pie de página */
 footer {
-    background-color: #800000; /* Rojo oscuro */
+    background-color: #41c2df; /* Rojo oscuro */
     color: #ffffff; /* Blanco puro */
     text-align: center;
-    padding: 10px;
+    padding: 15px;
     position: relative;
     bottom: 0;
     width: 100%;
-    border-top: 2px solid #8B4513; /* Línea superior marrón madera */
+    border-top: 2px solid #41c2df; /* Línea superior marrón madera */
+    font-size: 0.9rem;
 }

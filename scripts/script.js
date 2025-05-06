@@ -63,7 +63,7 @@
     return silabas;
   }
 
-  // 4. Diccionario básico de mapeo por sílaba (puedes ampliarlo según lo requieras)
+  // 4. Diccionario básico de mapeo por sílaba a katakana
   const mapeoSila = {
           "a": "ア", "e": "エ","i": "イ",
           "o": "オ",
@@ -219,7 +219,8 @@
           "gwa": "グァ",
           "gwi": "グィ",
           "gwe": "グェ",
-          "gwo": "グォ"
+          "gwo": "グォ",
+          "tl": "トル"
     // Puedes agregar más combinaciones y ajustar según la fonética deseada.
   };
 
@@ -278,3 +279,32 @@
     const convertido = convertirAKatakana(inputTexto);
     document.getElementById("resultado").textContent = convertido;
   });
+
+   // Evento del botón: copia el resultado al portapapeles.
+    document.getElementById("copiarBtn").addEventListener("click", function() {
+      const resultadoTexto = document.getElementById("resultado").textContent;
+      navigator.clipboard.writeText(resultadoTexto).then(() => {
+        alert("Resultado copiado al portapapeles.");
+      }).catch(err => {
+        console.error("Error al copiar al portapapeles: ", err);
+      });
+    });
+
+    document.getElementById('convertirBtn').addEventListener('click', function() {
+      const resultado = document.getElementById('resultado');
+      const copiarContainer = document.getElementById('copiarContainer');
+      if (resultado.textContent.trim() !== '') {
+        copiarContainer.style.display = 'block';
+      } else {
+        copiarContainer.style.display = 'none';
+      }
+    });
+
+  document.getElementById("numeroInput").addEventListener("keypress", function(event) {
+    if (event.key === "Enter") {
+      const inputTexto = document.getElementById("numeroInput").value;
+      const convertido = convertirAKatakana(inputTexto);
+      document.getElementById("resultado").textContent = convertido;
+    }
+  });
+

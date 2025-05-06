@@ -2,38 +2,61 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Katakanizador de números 【カタカ二ザドㇽ】</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portafolio de Proyectos</title>
     <link rel="stylesheet" href="styles/styles.css">
     <link rel="icon" href="https://upload.wikimedia.org/wikipedia/commons/9/91/Japanese_Katakana_A.svg" type="image/x-icon">
 </head>
 <body>
+    <button id="toggle-theme">Modo Oscuro</button>
     <header>
-        <h1>Katakanizador de números 【カタカ二ザドㇽ】</h1>
-        <audio controls autoplay loop>
-            <source src="audio\Angel.ogg" type="audio/ogg">
-        </audio>
+        <h1>Bienvenido a Mi Portafolio de Proyectos</h1>
     </header>
     <nav>
-        <a href="html/kataka2.html">Convertir</a>
-        <a href="html/history.html">Historia</a>
-        <a href="html/historienh.html">History JP version xd</a>
-
-        <a href="none">Contacto</a>
+        <a href="#proyectos">Proyectos</a>
+        <a href="#sobre-mi">Sobre Mí</a>
+        <a href="#contacto">Contacto</a>
     </nav>
-    <section>
-        <div class="featured-image">
-            <center><img src="https://upload.wikimedia.org/wikipedia/commons/9/91/Japanese_Katakana_A.svg" alt="カタカナ" width="auto" height="auto"></center>
+    <section id="proyectos">
+        <h2>Mis Proyectos</h2>
+        <div class="project-list">
+            <div class="project-card">
+                <h3>Katakanizador de Texto</h3>
+                <p>Convierte texto en español a katakana, uno de los silabarios japoneses.</p>
+                <a href="html/kataka2.html">Ver Proyecto</a>
+            </div>
+            <div class="project-card">
+                <h3>Freddy Fazbear Pizzería</h3>
+                <p>Página web de pedidos de la famosa pizzería con tus animatrónicos favoritos.</p>
+                <a href="html/history.html">Ver Proyecto</a>
+            </div>
+            <div class="project-card">
+                <h3>Versión Japonesa</h3>
+                <p>Historia del katakana en japonés.</p>
+                <a href="html/historienh.html">Ver Proyecto</a>
+            </div>
+            <!-- Agrega más proyectos aquí -->
         </div>
-        <p>El katakana es uno de los dos silabarios japoneses, junto con el hiragana. Se utiliza para escribir palabras de origen extranjero, onomatopeyas, nombres de plantas y animales, entre otros. En este caso, utilizaremos el katakana para escribir números en japonés.</p>
-        <h2>¿Cómo funciona?</h2>
-        <p>Ingresa un número en el campo de texto y presiona el botón "Convertir". El número ingresado se convertirá a katakana.</p>
-        <a href="kataka2.html">¡Comienza a convertir ahora!</a>
     </section>
-    <p></p>
-    <p></p>
-    <p></p>
+    <section id="sobre-mi">
+        <h2>Sobre Mí</h2>
+        <p>Soy un estudiante de 4° Semestre de preparatoria en la carrera de programación y soy un apasionado del estudio de idiomas y la cultura japonesa.</p>
+    </section>
+    <section id="contacto">
+        <h2>Retroalimentación del cliente</h2>
+        <p>¿Tienes alguna pregunta o comentario? ¡Contáctame!</p>
+        <form onsubmit="enviarCorreo(event)">
+            <label>Correo electrónico:</label><br>
+            <input type="email" id="email" required><br><br>
+            <label>Tu comentario:</label><br>
+            <textarea id="mensaje" rows="5" cols="40" required></textarea><br><br>
+            <button type="submit">Enviar</button>
+        </form>
+    </section>
     <footer>
-        &copy; 2025 Katakanizador de números 【カタカ二ザドㇽ】
+        &copy; 2025 Mi Portafolio de Proyectos. Todos los derechos reservados.
     </footer>
+    <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+    <script src="scripts/script.js" defer></script>
 </body>
 </html>
