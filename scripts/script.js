@@ -316,16 +316,26 @@ document.querySelector(".input").addEventListener("keypress", function(event) {
 });
 
 
-// Evento del botón para guardar como PDF
-document.getElementById("guardarBtn").addEventListener("click", function () {
-  const resultado = document.getElementById("resultado").innerText;
-  if (!resultado.trim()) {
-    alert('No hay contenido para guardar como PDF.');
-    return;
+document.getElementById('guardarBtn').addEventListener('click', function () {
+  const resultado = document.getElementById('resultado').innerText; // Obtén el texto del resultado
+  if (!resultado.trim()) { // Verifica si el resultado está vacío
+      alert('No hay contenido para guardar como PDF.');
+      return;
   }
-  const { jsPDF } = window.jspdf;
-  const doc = new jsPDF();
-  doc.text("Resultado en Katakana:", 10, 10);
-  doc.text(resultado, 10, 20);
-  doc.save('resultado.pdf');
+
+  const confirmacion = confirm('¿Deseas guardar el resultado como PDF?');
+  if (confirmacion) {
+      // Usa jsPDF para generar el PDF
+      const { jsPDF } = window.jspdf; // Asegúrate de que jsPDF esté disponible
+      const doc = new jsPDF();
+
+      // Configura el contenido del PDF
+      doc.setFont("helvetica", "normal");
+      doc.setFontSize(12);
+      doc.text("Resultado en Katakana:", 10, 10); // Título
+      doc.text(resultado, 10, 20); // Contenido del resultado
+
+      // Guarda el archivo PDF
+      doc.save('resultado.pdf');
+  }
 });
