@@ -314,3 +314,18 @@ document.querySelector(".input").addEventListener("keypress", function(event) {
       }
   }
 });
+
+
+// Evento del botón para guardar como PDF
+document.getElementById("guardarBtn").addEventListener("click", function () {
+  const resultado = document.getElementById("resultado").innerText;
+  if (!resultado.trim()) {
+    alert('No hay contenido para guardar como PDF.');
+    return;
+  }
+  const { jsPDF } = window.jspdf;
+  const doc = new jsPDF();
+  doc.text("Resultado en Katakana:", 10, 10);
+  doc.text(resultado, 10, 20);
+  doc.save('resultado.pdf');
+});
