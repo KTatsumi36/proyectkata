@@ -57,7 +57,33 @@
       </div>
       <img src="..\images\Mikukata.png" alt="Miku katakana カタカナ" class="katakana-image">
    </div> <!-- Aquí se cerró correctamente el contenedor `.converter` -->
+  <div id="guardarContainer" style="display: block;">
+    <button class="Btn" id="guardarBtn" aria-label="Botón para guardar el resultado como PDF">
+      <div class="text">Guardar como PDF</div>
+      <div class="svgIcon">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2ZM11 17H13V15H11V17ZM11 13H13V7H11V13Z" fill="white"/>
+        </svg>
+      </div>
+    </button>
+  </div>
+  <script>
+    document.getElementById('guardarBtn').addEventListener('click', function () {
+      const resultado = document.getElementById('resultado').innerText;
+      if (!resultado) {
+        alert('No hay contenido para guardar como PDF.');
+        return;
+      }
 
+      const confirmacion = confirm('¿Deseas guardar el resultado como PDF?');
+      if (confirmacion) {
+        const doc = new jsPDF();
+        doc.text(resultado, 10, 10);
+        doc.save('resultado.pdf');
+      }
+    });
+  </script>
+   
   </section>
   <footer>
     &copy; 2025 Katakanizador de números 【カタカ二ザドㇽ】
