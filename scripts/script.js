@@ -274,37 +274,43 @@
   }
 
   // Evento del botón: procesa la entrada y muestra el resultado.
-  document.getElementById("convertirBtn").addEventListener("click", function() {
-    const inputTexto = document.getElementById("numeroInput").value;
-    const convertido = convertirAKatakana(inputTexto);
-    document.getElementById("resultado").textContent = convertido;
+document.querySelector(".c-button").addEventListener("click", function() {
+  const inputTexto = document.querySelector(".input").value; // Se cambió el ID por la nueva clase
+  const convertido = convertirAKatakana(inputTexto);
+  document.getElementById("resultado").textContent = convertido;
+  
+  // Muestra el botón de copiar solo si hay un resultado
+  const copiarContainer = document.getElementById("copiarContainer");
+  if (convertido.trim() !== '') {
+      copiarContainer.style.display = 'block';
+  } else {
+      copiarContainer.style.display = 'none';
+  }
+});
+
+// Evento del botón: copia el resultado al portapapeles.
+document.getElementById("copiarBtn").addEventListener("click", function() {
+  const resultadoTexto = document.getElementById("resultado").textContent;
+  navigator.clipboard.writeText(resultadoTexto).then(() => {
+      alert("Resultado copiado al portapapeles.");
+  }).catch(err => {
+      console.error("Error al copiar al portapapeles: ", err);
   });
+});
 
-   // Evento del botón: copia el resultado al portapapeles.
-    document.getElementById("copiarBtn").addEventListener("click", function() {
-      const resultadoTexto = document.getElementById("resultado").textContent;
-      navigator.clipboard.writeText(resultadoTexto).then(() => {
-        alert("Resultado copiado al portapapeles.");
-      }).catch(err => {
-        console.error("Error al copiar al portapapeles: ", err);
-      });
-    });
-
-    document.getElementById('convertirBtn').addEventListener('click', function() {
-      const resultado = document.getElementById('resultado');
-      const copiarContainer = document.getElementById('copiarContainer');
-      if (resultado.textContent.trim() !== '') {
-        copiarContainer.style.display = 'block';
-      } else {
-        copiarContainer.style.display = 'none';
-      }
-    });
-
-  document.getElementById("numeroInput").addEventListener("keypress", function(event) {
-    if (event.key === "Enter") {
-      const inputTexto = document.getElementById("numeroInput").value;
+// Evento para procesar la conversión al presionar Enter en el campo de entrada.
+document.querySelector(".input").addEventListener("keypress", function(event) {
+  if (event.key === "Enter") {
+      const inputTexto = this.value; // Se usa `this.value` para tomar el texto del input
       const convertido = convertirAKatakana(inputTexto);
       document.getElementById("resultado").textContent = convertido;
-    }
-  });
-
+      
+      // Muestra el botón de copiar solo si hay un resultado
+      const copiarContainer = document.getElementById("copiarContainer");
+      if (convertido.trim() !== '') {
+          copiarContainer.style.display = 'block';
+      } else {
+          copiarContainer.style.display = 'none';
+      }
+  }
+});

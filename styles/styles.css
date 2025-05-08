@@ -5,31 +5,62 @@
 }
 
 /* Aplicar la fuente a todo el documento */
+/* -------------------------------------------- */
+/* 1) Nuevo fondo animado con gradiente pastel */
+/* Fondo animado con gradiente pastel */
 body {
-    background-color: #FFF8DC; /* Beige claro */
-    background-image: linear-gradient(to bottom, #FFF8DC, #FAF0E6); /* Degradado sutil */
-    font-family: 'Nijiiro', Helvetica, Arial, sans-serif; /* Fuente personalizada */
-    color: #2c2c2c; /* Texto gris oscuro */
     margin: 0;
-    padding: 0;
-    transition: background-color 0.3s, color 0.3s; /* Transición para modo oscuro */
+    font-family: 'Nijiiro', Helvetica, Arial, sans-serif;
+    color: #2c2c2c;
+
+    background: linear-gradient(-45deg, #fff7e6, #e7f5ff, #fef6ff, #f1f8f6);
+    background-size: 400% 400%;
+    animation: fondoAnimado 20s ease infinite;
+
+    position: relative;
+    overflow-x: hidden;
 }
 
-/* Modo oscuro */
-.dark-mode {
-    background-color: #2c2c2c; /* Fondo oscuro */
-    color: #f9f9f9; /* Texto claro */
+/* Animación del fondo */
+@keyframes fondoAnimado {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
 }
+  
+  /* Capa de estrellas animadas */
+body::before {
+    content: "";
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
 
+    background: 
+        radial-gradient(#ffffff60 1px, transparent 1px),
+        radial-gradient(#ffffff40 1px, transparent 1px);
+    background-size: 40px 40px;
+    background-position: 0 0, 20px 20px;
+
+    z-index: -1;
+    pointer-events: none;
+    animation: estrellasDesplazamiento 60s linear infinite;
+}
+  
+  @keyframes estrellasDesplazamiento {
+    from { background-position: 0 0, 20px 20px; }
+    to { background-position: 100px 100px, 120px 120px; }
+}
+  /* -------------------------------------------- */
+  
 /* Estilo del encabezado */
 header {
-    background-color: #39baed; /* Marrón madera */
-    color: #ffffff; /* Blanco puro */
+    background-color: #39baed;
+    color: #ffffff;
     text-align: center;
     padding: 20px;
     font-size: 1.8rem;
     font-weight: bold;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Sombra para destacar */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
 }
 
 /* Estilo de navegación */
@@ -41,15 +72,15 @@ nav {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra ligera */
 }
 nav a {
-    color: #F5F5DC; /* Beige */
+    color: #F5F5DC;
     text-decoration: none;
     padding: 10px 15px;
     font-weight: bold;
-    transition: background-color 0.3s, color 0.3s; /* Transición suave */
+    transition: background-color 0.3s, color 0.3s;
 }
 nav a:hover {
-    background-color: #55cae5; /* Marrón rojizo */
-    color: #ffffff; /* Blanco puro */
+    background-color: #55cae5;
+    color: #ffffff;
     border-radius: 5px;
 }
 
@@ -57,15 +88,183 @@ nav a:hover {
 section {
     padding: 30px;
     text-align: center;
-    background-color: #E0FFFF; /* Verde aqua claro */
-    border: 1px solid #20B2AA; /* Verde aqua más oscuro */
+    background-color: #E0FFFF;
+    border: 1px solid #20B2AA;
     border-radius: 10px;
     margin: 20px auto;
     max-width: 900px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra para destacar */
-    color: #2c2c2c; /* Texto gris oscuro */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    color: #2c2c2c;
+}
+/* From Uiverse.io by Smit-Prajapati */ 
+.container {
+    position: relative;
+    background: linear-gradient(135deg, rgb(179, 208, 253) 0%, rgb(164, 202, 248) 100%);
+    border-radius: 1000px;
+    padding: 10px;
+    display: grid;
+    place-content: center;
+    z-index: 0;
+    max-width: 300px;
+    margin: 0 auto; /* Centrar horizontalmente */
 }
 
+.search-container {
+    position: relative;
+    width: 100%;
+    border-radius: 50px;
+    background: linear-gradient(135deg, rgb(218, 232, 247) 0%, rgb(214, 229, 247) 100%);
+    padding: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Centrar contenido */
+}
+
+.search-container::after, .search-container::before {
+    content: "";
+    width: 100%;
+    height: 100%;
+    border-radius: inherit;
+    position: absolute;
+}
+
+.search-container::before {
+    top: -1px;
+    left: -1px;
+    background: linear-gradient(0deg, rgb(218, 232, 247) 0%, rgb(255, 255, 255) 100%);
+    z-index: -1;
+}
+
+.search-container::after {
+    bottom: -1px;
+    right: -1px;
+    background: linear-gradient(0deg, rgb(163, 206, 255) 0%, rgb(211, 232, 255) 100%);
+    box-shadow: rgba(79, 156, 232, 0.7019607843) 3px 3px 5px 0px, rgba(79, 156, 232, 0.7019607843) 5px 5px 20px 0px;
+    z-index: -2;
+}
+
+.input {
+    padding: 10px;
+    width: 100%;
+    background: linear-gradient(135deg, rgb(218, 232, 247) 0%, rgb(214, 229, 247) 100%);
+    border: none;
+    color: #9EBCD9;
+    font-size: 20px;
+    border-radius: 50px;
+    text-align: center; /* Centrar texto */
+}
+
+.input:focus {
+    outline: none;
+    background: linear-gradient(135deg, rgb(239, 247, 255) 0%, rgb(214, 229, 247) 100%);
+}
+
+/* From Uiverse.io by zebra76966 */ 
+button {
+    border: none;
+  }
+  
+  .c-button {
+    background: linear-gradient(140deg, rgb(103, 213, 202) 0%, rgb(32, 160, 130) 100%);
+    border-radius: 45px;
+    font-size: 25px;
+    text-align: left;
+    padding: 11px 0px 11px 0px;
+    border: 4px solid rgb(231, 230, 230) !important;
+    border-style: outset;
+    box-shadow: -6px -5px 18px rgba(255, 255, 255, 0.1);
+    cursor: pointer;
+  }
+  
+  .c-button .c-main {
+    border-radius: 45px;
+    color: rgba(255, 255, 255, 1);
+    padding: 11px 25px 11px 2px;
+    box-shadow: inset 0px 0px 5px rgba(17, 17, 17, 0);
+    transition: all 0.5s ease-in-out;
+    border: 1px solid transparent;
+  }
+  
+  .c-ico {
+    position: relative;
+    margin-right: 20px;
+  }
+  
+  .c-ico .ico-text {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
+  
+/* Botón para copiar */
+.Btn {
+    width: 150px; /* Aumentado para mejor visibilidad */
+    height: 50px; /* Más alto para mejor interacción */
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Centrado */
+    border: none;
+    border-radius: 8px; /* Bordes más redondeados */
+    overflow: hidden;
+    box-shadow: 3px 3px 12px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    transition: all 0.3s ease-in-out; /* Animación al pasar el cursor */
+}
+
+.text {
+    width: 70%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px; /* Texto más grande */
+    font-weight: bold; /* Más impacto */
+    color: white;
+    background-color: rgb(2, 153, 153);
+}
+
+.svgIcon {
+    width: 30%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    background-color: teal;
+}
+
+.Btn:hover .text {
+    background-color: rgb(0, 133, 133);
+}
+
+.Btn:hover .svgIcon {
+    background-color: rgb(0, 105, 105);
+}
+
+/* Asegurar que el contenedor del botón esté centrado */
+#copiarContainer {
+    display: flex;
+    justify-content: center;
+    margin-top: 15px; /* Espacio para separarlo del resultado */
+}
+button {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra para el botón */
+    transition: box-shadow 0.3s ease-in-out; /* Transición suave para la sombra */
+}
+
+button:hover {
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Sombra más intensa al pasar el cursor */
+}
+
+  /* Hovering */
+  
+  .c-button .c-main:hover {
+    box-shadow: inset 0px 0px 5px rgba(17, 17, 17, 0.6);
+    border: 1px solid rgba(26, 26, 26,0.5);
+    color: rgba(255, 255, 255, 0.5);
+  }
+  
 /* Estilo de las tarjetas de proyectos */
 .project-list {
     display: flex;

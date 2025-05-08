@@ -30,18 +30,33 @@
   </header>
   <section>
     <h1>¡Convierte tus números a katakana!</h1>
-<p>Ingresa un número en el campo de texto y presiona el botón "Convertir". Por ahora, solo funciona con números escritos en español.</p>
-<div class="converter">
-  <input type="text" id="numeroInput" placeholder="ej. once, doce, veintitrés..." aria-label="Campo para ingresar el número" style="font-size: 1.5em; padding: 10px; width: 100%; margin-bottom: 10px;">
-  <button id="convertirBtn" aria-label="Botón para convertir a katakana" style="font-size: 1.1cm; padding: 10px 20px;">Convertir</button>
-</div>
-<div id="resultado" class="resultado" aria-live="polite"></div>
-<div id="copiarContainer" style="display: none;"></div>
-  <button id="copiarBtn" aria-label="Botón para copiar el resultado al portapapeles" style="font-size: 1.5em; padding: 10px 20px; margin-top: 10px;">Copiar resultado</button>
-</div>
-<div class="featured-image">
-  <img src="..\images\Mikukata.png" alt="Símbolo de katakana カタカナ" class="katakana-image">
-</div>
+    <p>Ingresa texto en el campo de texto y presiona el botón "Convertir". Recuerda sólo usar palabras en español.</p>
+    <div class="converter" style="display: flex; justify-content: center; align-items: center; flex-direction: column;">
+      <div class="container">
+        <div class="search-container">
+          <input class="input" type="text" placeholder="Escribe aquí" aria-label="Campo para ingresar el número" style="font-size: 1.5em; padding: 10px; width: 100%; margin-bottom: 10px;">
+        </div>
+      </div>
+      <p></p>
+      <button class="c-button">
+        <span class="c-main">
+          <span class="c-ico"><span class="c-blur"></span> <span class="ico-text"></span></span>
+          Convertir
+        </span>
+      </button>
+      <div id="resultado" class="resultado" aria-live="polite"></div>
+      <div id="copiarContainer" style="display: none;">
+        <button class="Btn" id="copiarBtn" aria-label="Botón para copiar el resultado al portapapeles">
+          <div class="text">Copiar</div>
+          <div class="svgIcon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M9 13H15V11H9V13ZM9 17H15V15H9V17ZM9 9H15V7H9V9ZM4 23V6L9 1H20C21.1 1 22 1.9 22 3V23H4ZM6 21H20V3H9.83L6 6.83V21Z" fill="white"/>
+            </svg>
+          </div>
+        </button>
+      </div>
+      <img src="..\images\Mikukata.png" alt="Miku katakana カタカナ" class="katakana-image">
+   </div> <!-- Aquí se cerró correctamente el contenedor `.converter` -->
 
   </section>
   <footer>
