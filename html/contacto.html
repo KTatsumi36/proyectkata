@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es">
+  <h1>Contactanos</h1>
+  
+  <link rel="stylesheet" type="text/css" href="../styles/styles.css">
+<body>
+  <div class="form-wrapper">
+    <div class="form-container">
+      <form id="contact-form">
+        <label for="nombre">Nombre:</label>
+        <input type="text" id="nombre" name="from_name" required>
+  
+        <label for="correo">Correo:</label>
+        <input type="email" id="correo" name="reply_to" required>
+  
+        <label for="comentario">Comentario:</label>
+        <textarea id="comentario" name="message" rows="4" required></textarea>
+        <br>
+        <button type="submit" class="send-btn">Enviar</button>
+
+      </form>
+
+    </div>
+  </div>
+  
+  
+  <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+  <script src="../scripts/contacto.js"></script>
+
+  
+</body>
+</html>

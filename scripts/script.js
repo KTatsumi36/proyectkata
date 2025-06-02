@@ -316,45 +316,30 @@ document.querySelector(".input").addEventListener("keypress", function(event) {
 });
 
 
-document.getElementById('guardarBtn').addEventListener('click', async function () {
+document.getElementById('guardarBtn').addEventListener('click', function () {
   const resultado = document.getElementById('resultado').innerText; // Obtén el texto del resultado
   if (!resultado.trim()) { // Verifica si el resultado está vacío
       alert('No hay contenido para guardar como PDF.');
       return;
   }
 
-  const confirmacion = confirm('¿Deseas guardar el resultado como PDF?');
-  if (confirmacion) {
-      // Usa pdf-lib para generar el PDF
-      const { PDFDocument, StandardFonts, rgb } = PDFLib;
-      const pdfDoc = await PDFDocument.create();
-      const page = pdfDoc.addPage([595, 842]); // Tamaño A4
-
-      const font = await pdfDoc.embedFont(StandardFonts.Helvetica);
-
-      page.drawText("Resultado en Katakana:", {
-          x: 50,
-          y: 800,
-          size: 16,
-          font: font,
-          color: rgb(0, 0, 0)
-      });
-
-      page.drawText(resultado, {
-          x: 50,
-          y: 770,
-          size: 32,
-          font: font,
-          color: rgb(0, 0, 0)
-      });
-
-      const pdfBytes = await pdfDoc.save();
-
-      // Descarga el PDF
-      const blob = new Blob([pdfBytes], { type: "application/pdf" });
-      const link = document.createElement("a");
-      link.href = URL.createObjectURL(blob);
-      link.download = "resultado.pdf";
-      link.click()
-  }
-});
+const confirmacion = confirm('¿Deseas guardar el resultado como TXT?');
+if (confirmacion) {
+    // Aquí es donde cambias la lógica
+    const textoParaGuardar = resultado;
+    // Crear un Blob (paquete de datos) con el texto y la codificación UTF-8
+    const blob = new Blob([textoParaGuardar], { type: 'text/plain;charset=utf-8' });
+    // Crear un URL temporal para el Blob
+    const url = URL.createObjectURL(blob);
+    // Crear un enlace invisible para la descarga
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'resultado_katakana.txt'; // Nombre del archivo a descargar
+    // Simular un clic para iniciar la descarga
+    document.body.appendChild(a); // Añade el enlace temporal al DOM
+    a.click(); // Dispara la descarga
+    // Limpiar: liberar el URL del objeto Blob y remover el enlace del DOM
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+    }
+    });
