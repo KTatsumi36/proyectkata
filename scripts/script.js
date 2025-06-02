@@ -316,7 +316,7 @@ document.querySelector(".input").addEventListener("keypress", function(event) {
 });
 
 
-document.getElementById('guardarBtn').addEventListener('click', function () {
+document.getElementById('guardarBtn').addEventListener('click', async function () {
   const resultado = document.getElementById('resultado').innerText; // Obtén el texto del resultado
   if (!resultado.trim()) { // Verifica si el resultado está vacío
       alert('No hay contenido para guardar como PDF.');
@@ -325,17 +325,36 @@ document.getElementById('guardarBtn').addEventListener('click', function () {
 
   const confirmacion = confirm('¿Deseas guardar el resultado como PDF?');
   if (confirmacion) {
-      // Usa jsPDF para generar el PDF
-      const { jsPDF } = window.jspdf; // Asegúrate de que jsPDF esté disponible
-      const doc = new jsPDF();
+      // Usa pdf-lib para generar el PDF
+      const { PDFDocument, StandardFonts, rgb } = PDFLib;
+      const pdfDoc = await PDFDocument.create();
+      const page = pdfDoc.addPage([595, 842]); // Tamaño A4
 
-      // Configura el contenido del PDF
-      doc.setFont("helvetica", "normal");
-      doc.setFontSize(12);
-      doc.text("Resultado en Katakana:", 10, 10); // Título
-      doc.text(resultado, 10, 20); // Contenido del resultado
+      const font = await pdfDoc.embedFont(StandardFonts.Helvetica);
 
-      // Guarda el archivo PDF
-      doc.save('resultado.pdf');
+      page.drawText("Resultado en Katakana:", {
+          x: 50,
+          y: 800,
+          size: 16,
+          font: font,
+          color: rgb(0, 0, 0)
+      });
+
+      page.drawText(resultado, {
+          x: 50,
+          y: 770,
+          size: 32,
+          font: font,
+          color: rgb(0, 0, 0)
+      });
+
+      const pdfBytes = await pdfDoc.save();
+
+      // Descarga el PDF
+      const blob = new Blob([pdfBytes], { type: "application/pdf" });
+      const link = document.createElement("a");
+      link.href = URL.createObjectURL(blob);
+      link.download = "resultado.pdf";
+      link.click()
   }
 });
